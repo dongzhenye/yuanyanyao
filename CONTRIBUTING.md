@@ -44,6 +44,8 @@ id: 1
 registrationNumber: 国药准字HJ20140344
 registrationType: 境外生产药品
 productName: 磷酸奥司他韦胶囊
+isOriginal: true
+originator: Roche Pharma International AG
 references:
   - type: 药监局公告
     url: https://www.nmpa.gov.cn/...
