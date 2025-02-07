@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r scripts/requirements.txt
+        
+    - name: Run tests
+      run: |
+        pytest scripts/test_*.py -v
+        
+    - name: Validate data files
+      run: |
+        for file in data/*.md; do
+          echo "Validating $file..."
+          python scripts/validate.py "$file"
+        done
+        
+    - name: Generate exports
+      run: |
+        python scripts/export.py --format json
+        python scripts/export.py --format csv
+        
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: exports
+        path: exports/ 
