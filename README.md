@@ -1,6 +1,8 @@
 # 原研药数据库
 
 [![数据来源](https://img.shields.io/badge/数据来源-NMPA-blue)](https://www.nmpa.gov.cn/)
+[![数据量徽章](https://img.shields.io/badge/数据量-1条-blue)]()
+[![更新时间徽章](https://img.shields.io/badge/更新-0天前-orange)]()
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 [![贡献指南](https://img.shields.io/badge/贡献-CONTRIBUTING-blue)](./CONTRIBUTING.md)
 
