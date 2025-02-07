@@ -10,6 +10,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 添加创建release的权限
     steps:
     - uses: actions/checkout@v4
     
