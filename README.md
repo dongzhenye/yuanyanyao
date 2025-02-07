@@ -4,7 +4,6 @@
 [![数据量徽章](https://img.shields.io/badge/数据量-1条-blue)]()
 [![更新时间徽章](https://img.shields.io/badge/更新-0天前-orange)]()
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
-[![贡献指南](https://img.shields.io/badge/贡献-CONTRIBUTING-blue)](./CONTRIBUTING.md)
 
 一个开源的原研药数据库，旨在为中国用户提供覆盖全面、更新及时、来源可靠的原研药数据。
 
