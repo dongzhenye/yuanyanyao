@@ -1,0 +1,207 @@
+# 原研药数据库模式定义
+
+fields:
+  # 基础信息
+  id:
+    type: string
+    label: 系统ID
+    desc: |
+      自增序号(1-99999)
+      - 必须从1开始连续编号
+      - 禁止跳号或超过5位数
+    required: true
+    pattern: "^[1-9]\\d{0,4}$"
+    example: 1
+
+  # 注册信息
+  registrationType:
+    type: string
+    label: 注册类型
+    desc: |
+      药品注册分类
+      - 参考《药品注册管理办法》第三章
+      - 按照生产地点分类
+    required: true
+    enum: 
+      - 境内生产药品
+      - 境外生产药品
+    example: 境外生产药品
+
+  approvalNumber:
+    type: string
+    label: 批准文号
+    desc: |
+      国家药品监督管理局核发的批准文号
+      - 适用于境内和进口药品
+      - 必须与药监局官网一致
+    required: true
+    pattern: "^国药准字[HZSJTB]\\d{8}$"
+    example: 国药准字H20140344
+
+  registrationNumber:
+    type: string
+    label: 注册证号
+    desc: |
+      进口药品注册批件号
+      - 仅适用于进口药品
+      - 另有原注册证号(不包含"J")暂未维护
+    required: true
+    pattern: "^国药准字H[J]\\d{8}$"
+    example: 国药准字HJ20140344
+
+  # 名称信息
+  inn:
+    type: string
+    label: 国际非专利药品名
+    desc: WHO认定的通用名(INN)
+    example: Oseltamivir
+
+  genericName:
+    type: string
+    label: 通用名
+    desc: |
+      国家药典委员会规定的中文通用名
+      - 不包含剂型
+      - 必须与药典一致
+    required: true
+    example: 磷酸奥司他韦
+
+  productName:
+    type: string
+    label: 产品名
+    desc: |
+      药监局核准的产品名称
+      - 通常为"通用名+剂型"
+      - 必须与注册信息一致
+    required: true
+    example: 磷酸奥司他韦胶囊
+
+  productNameEn:
+    type: string
+    label: 英文产品名
+    desc: |
+      境外生产药品的英文名称
+      - 通常为"通用名+剂型"的英文
+      - 必须与注册信息一致
+    example: Oseltamivir Phosphate Capsules
+
+  brandName:
+    type: string
+    label: 商品名
+    desc: |
+      药品商品名称
+      - 企业注册的商标名称
+      - 不包含®™等标记
+    required: true
+    example: 达菲
+
+  brandNameEn:
+    type: string
+    label: 英文商品名
+    desc: 企业在国际市场使用的商品名
+    example: Tamiflu
+
+  # 产品信息
+  category:
+    type: string
+    label: 药品分类
+    desc: |
+      根据《药品注册管理办法》分类：
+      - 化学药品
+      - 生物制品
+      - 中药
+      - 天然药物
+    enum: 
+      - 化学药品
+      - 生物制品
+      - 中药
+      - 天然药物
+    required: true
+    example: 化学药品
+
+  formulation:
+    type: string
+    label: 剂型
+    desc: 药品剂型
+    required: true
+    example: 胶囊
+
+  specification:
+    type: string 
+    label: 规格
+    desc: |
+      药品规格
+      - 必须与注册信息一致
+      - 表示包含有效成分的含量
+    required: true
+    example: 75mg
+
+  packageSpec:
+    type: string
+    label: 包装规格
+    desc: |
+      最小销售单位规格
+      - 包含制剂单位数量和包装形式
+      - 必须与注册信息一致
+    example: 10粒/盒
+
+  # 企业信息
+  mahName:
+    type: string
+    label: 上市许可持有人
+    desc: Marketing Authorization Holder
+    required: true
+    example: Roche Pharma (Schweiz) AG
+
+  mahAddress:
+    type: string
+    label: 上市许可持有人地址
+    desc: 上市许可持有人注册地址
+    required: true
+    example: Grenzacherstrasse 124, 4058 Basel, Switzerland
+
+  manufacturerName:
+    type: string
+    label: 生产商
+    desc: 实际生产单位
+    required: true
+    example: Delpharm Milano S.r.l.
+
+  manufacturerAddress:
+    type: string
+    label: 生产地址
+    desc: 生产企业地址
+    required: true
+    example: Via Carnevale, 1, 20054 Segrate (MI), Italy
+
+  manufacturerCountry:
+    type: string
+    label: 生产国家/地区
+    desc: 生产企业所在国家/地区
+    example: 意大利
+
+  packagingName:
+    type: string
+    label: 分装商
+    desc: |
+      药品分装/包装企业
+      - 负责最终包装的企业
+      - 必须与注册信息一致
+    example: 上海罗氏制药有限公司
+
+  packagingAddress:
+    type: string
+    label: 分装地址
+    desc: 分装企业生产地址
+    example: 上海市浦东新区龙东大道1100号
+
+  # 时间信息
+  approvalDate:
+    type: date
+    label: 批准日期
+    desc: |
+      最新批准/注册日期
+      - 境内药品为批准日期
+      - 进口药品为注册证批准日期
+    required: true
+    example: 2024-01-15 
