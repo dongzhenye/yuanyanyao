@@ -29,6 +29,8 @@ id: 1
 registrationNumber: 国药准字HJ20140344
 registrationType: 境外生产药品
 productName: 磷酸奥司他韦胶囊
+isOriginal: true
+originator: Roche Pharma International AG
 productNameEn: Oseltamivir Phosphate Capsules
 brandName: 达菲
 category: 化学药品

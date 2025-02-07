@@ -205,3 +205,43 @@ fields:
       - 进口药品为注册证批准日期
     required: true
     example: 2024-01-15 
+
+  # 新增字段
+  isOriginal:
+    type: boolean
+    label: 是否原研
+    desc: |
+      判断依据：
+      1. 境外药：原研厂商为MAH/生产商/分装商
+      2. 境内药：原研厂商为MAH/生产商
+    required: true
+    example: true
+
+  originator:
+    type: string
+    label: 原研厂商
+    desc: 全球首个研发上市的企业
+    pattern: "^[\u4e00-\u9fa5A-Za-z0-9& ]+$"
+    example: Roche Pharma International AG
+
+  originatorSource:
+    type: array
+    label: 认定依据
+    items:
+      type: object
+      properties:
+        type: 
+          enum: [药监局公告, FDA橙皮书, 企业声明]
+        url: string
+    example: 
+      - type: FDA橙皮书
+        url: https://www.accessdata.fda.gov/scripts/cder/ob/
+
+  originalException:
+    type: string
+    label: 特殊情形
+    desc: |
+      例外情况说明：
+      1. 授权仿制药（如原厂授权生产）
+      2. 专利到期5年内仿制药
+    example: "原研厂商授权生产" 
