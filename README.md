@@ -16,6 +16,18 @@
 
 ## 快速开始
 
+### 下载数据
+
+- [最新版本](https://github.com/dongzhenye/yuanyanyao/releases/latest)
+- [历史版本](https://github.com/dongzhenye/yuanyanyao/releases)
+
+支持的格式：
+
+- JSON（完整数据，推荐）
+- CSV（扁平格式，Excel友好）
+
+### 本地克隆
+
 ```bash
 git clone https://github.com/dongzhenye/yuanyanyao.git
 cd yuanyanyao/data

@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'data/**'  # 当数据文件变更时触发
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r scripts/requirements.txt
+        
+    - name: Generate exports
+      run: |
+        python scripts/export.py --format json
+        python scripts/export.py --format csv
+        
+    - name: Get current date
+      id: date
+      run: echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+        
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        name: 数据更新 ${{ steps.date.outputs.DATE }}
+        tag_name: release-${{ steps.date.outputs.DATE }}
+        body: |
+          ## 数据更新 (${{ steps.date.outputs.DATE }})
+          
+          ### 下载
+          - [JSON格式](drugs.json)
+          - [CSV格式](drugs.csv)
+          
+          ### 说明
+          - 自动从main分支生成
+          - 包含所有最新数据
+          - 格式已经过验证
+        files: |
+          exports/drugs.json
+          exports/drugs.csv
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
