@@ -51,6 +51,8 @@ references:
     url: https://www.nmpa.gov.cn/...
 ```
 
+> 注：YAML块需要用`---`包裹，日期格式使用`YYYY-MM-DD`
+
 ## 提交规范
 
 ### 1. 分支管理

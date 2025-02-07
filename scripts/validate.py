@@ -62,7 +62,7 @@ def validate_file(file_path):
 
             # 境外药品的中英文要求
             if not (re.search(r'productName:\s*', content) or re.search(r'productNameEn:\s*', content)):
-                raise ValidationError("境外药品必须至少有一种语言的产品名称")
+                raise ValidationError("境外药品必须提供中文或英文产品名称")
 
         # 格式校验
         if approval_number_match := re.search(r'approvalNumber:\s*(.*)', content):
