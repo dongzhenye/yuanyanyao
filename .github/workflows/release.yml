@@ -42,14 +42,14 @@ jobs:
         body: |
           ## 数据更新 (${{ steps.date.outputs.DATE }})
           
-          ### 下载
-          - [JSON格式](drugs.json)
-          - [CSV格式](drugs.csv)
-          
           ### 说明
           - 自动从main分支生成
           - 包含所有最新数据
           - 格式已经过验证
+          
+          ### 文件说明
+          - drugs.json - 完整数据，推荐使用
+          - drugs.csv - 扁平格式，Excel友好
         files: |
           exports/drugs.json
           exports/drugs.csv
