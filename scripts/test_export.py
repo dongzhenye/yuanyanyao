@@ -17,4 +17,18 @@ def test_nested_yaml():
     data = markdown_to_yaml('data/1.md')
     assert 'originatorSource' in data
     assert len(data['originatorSource']) == 2
-    assert data['originatorSource'][0]['type'] == 'FDA橙皮书' 
+    assert data['originatorSource'][0]['type'] == 'FDA橙皮书'
+
+def test_export_json(tmp_path):
+    from export import export
+    export('json')
+    json_file = Path('exports/drugs.json')
+    assert json_file.exists()
+    # TODO: 验证JSON内容
+
+def test_export_csv(tmp_path):
+    from export import export
+    export('csv')
+    csv_file = Path('exports/drugs.csv')
+    assert csv_file.exists()
+    # TODO: 验证CSV内容 

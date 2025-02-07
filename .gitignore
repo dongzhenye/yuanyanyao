@@ -176,3 +176,5 @@ cython_debug/
 # New additions
 /exports/
 *.pyc
+__pycache__/
+.pytest_cache/
