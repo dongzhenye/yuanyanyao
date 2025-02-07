@@ -1,70 +1,97 @@
 # 原研药数据库
 
+[![数据来源](https://img.shields.io/badge/数据来源-NMPA-blue)](https://www.nmpa.gov.cn/)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+[![贡献指南](https://img.shields.io/badge/贡献-CONTRIBUTING-blue)](./CONTRIBUTING.md)
 
-一个开源的原研药数据库，旨在为中国用户提供权威、及时、易用的原研药信息查询服务。
+一个开源的原研药数据库，旨在为中国用户提供覆盖全面、更新及时、来源可靠的原研药数据。
 
-## 项目简介
+## 项目特性
 
-随着医药行业的发展，越来越多用户开始关注药品的原研信息。本项目致力于:
+- **权威数据**：基于国家药监局(NMPA)等官方数据源
+- **严格校验**：符合《药品注册管理办法》格式规范
+- **结构清晰**：采用分层设计的YAML数据格式
+- **变更追溯**：完整的Git历史记录和PR审核机制
+- **社区共建**：支持通过GitHub进行协作维护
 
-- 📚 构建最全面的原研药数据库
-- 🔄 确保数据及时更新
-- 🔍 提供便捷的查询服务
-- 🤝 支持社区共同维护
+## 快速开始
 
-## 数据特点
+```bash
+git clone https://github.com/dongzhenye/yuanyanyao.git
+cd yuanyanyao/data
+```
 
-- 严格的数据溯源
-- 完整的变更历史
-- 清晰的争议标记
-- 结构化的存储格式
-
-## 数据示例
+查看示例数据：
 
 ```yaml
-id: OD-000001
-genericName: 奥司他韦
-brandName:
-  base: 达菲
-  suffix: 胶囊
-manufacturer: 上海罗氏
-approvalNumber: 国药准字H20220001
+# data/1.yaml
+id: 1
+registrationNumber: 国药准字HJ20140344
+registrationType: 境外生产药品
+productName: 磷酸奥司他韦胶囊
+productNameEn: Oseltamivir Phosphate Capsules
+brandName: 达菲
+category: 化学药品
+specification: 75mg
+mahName: Roche Pharma (Schweiz) AG
+approvalDate: 2024-01-15
 ```
+
+## 数据结构
+
+核心字段定义（完整版见[schema.yaml](schema.yaml)）：
+
+| 字段                | 类型     | 必填 | 示例值                  |
+|---------------------|----------|------|-------------------------|
+| id                 | string  | 是   | 1                      |
+| registrationNumber | string  | 是   | 国药准字HJ20140344     |
+| productName        | string  | 是   | 磷酸奥司他韦胶囊       |
+| brandName          | string  | 是   | 达菲                   |
+| specification      | string  | 是   | 75mg                   |
+
+## 设计原则
+
+1. **数据权威性**
+   - 以NMPA官网数据为基准
+   - 所有字段必须可官方核验
+2. **更新及时性**
+   - 自动化校验脚本
+   - 社区驱动的更新机制
+3. **适度设计**
+   - 仅收录必要核心字段
+   - 避免存储可推导数据
 
 ## 如何贡献
 
-1. Fork 本仓库
-2. 创建您的特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交您的更改 (`git commit -m '添加了一些特性'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启一个 Pull Request
+1. 阅读[贡献指南](CONTRIBUTING.md)
+2. 创建新的药品数据文件
+3. 提交Pull Request
+4. 通过自动化校验流程
 
-详细贡献指南请参考 [CONTRIBUTING.md](./CONTRIBUTING.md)
-
-## 数据来源
-
-- 国家药品监督管理局官方网站
-- 企业官方网站
-- WHO INN（国际非专利药名）数据库
-- FDA 橙皮书
+推荐贡献格式：
+```bash
+git commit -m '数据：新增磷酸奥司他韦胶囊(HJ20140344)'
+```
 
 ## 开源协议
 
-本项目采用 [CC-BY-SA 4.0](./LICENSE) 协议。这意味着您可以：
+采用 [CC-BY-SA 4.0](LICENSE) 协议：
 
-- 自由地分享、复制、重新发布该数据库
-- 自由地修改、转换或基于该数据库进行创作
+- 允许自由共享和演绎
+- 需保留原始署名
+- 衍生作品需采用相同协议
 
-但必须遵循以下条件：
-- 署名 - 您必须给出适当的署名，提供指向本许可协议的链接
-- 相同方式共享 - 如果您修改、转换或基于本作品进行创作，您必须采用相同的许可协议分发您的贡献
+## 项目结构
 
-## 联系方式
-
-- 项目负责人: [@dongzhenye](https://github.com/dongzhenye)
-- 问题反馈: [Issues](https://github.com/dongzhenye/yuanyanyao/issues)
+```
+yuanyanyao/
+├── data/          # 核心数据库
+├── docs/          # 设计文档
+│   └── database.md # 数据库设计规范
+├── scripts/       # 校验工具
+└── schema.yaml    # 数据模式定义
+```
 
 ## 致谢
 
-感谢所有贡献者对本项目的支持！
+感谢所有[贡献者](https://github.com/dongzhenye/yuanyanyao/graphs/contributors)的宝贵贡献！
