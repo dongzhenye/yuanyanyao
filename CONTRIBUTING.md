@@ -1,59 +1,111 @@
 # 贡献指南
 
-感谢您考虑为原研药数据库做出贡献！
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
+[![Commit Style](https://img.shields.io/badge/Commit-规范-blue)](docs/commit-guide.md)
 
-## 数据贡献流程
+欢迎参与原研药数据库建设！以下是贡献指南：
 
-### 1. 数据来源要求
+## 贡献流程
 
-- A级：药监局官方文件
-- B级：企业官方声明
-- C级：行业普遍认知
-- D级：市场调研数据
-
-必须提供数据来源链接或参考文献。
-
-### 2. 数据格式规范
-
-请遵循以下格式提交数据：
-
-```yaml
-id: OD-{6位数字}
-genericName: {通用名}
-brandName:
-  base: {商品名}
-  suffix: {剂型}
-manufacturer: {生产企业}
-approvalNumber: {批准文号}
+```mermaid
+graph TD
+    A[Fork仓库] --> B[创建数据文件]
+    B --> C[本地校验]
+    C --> D[提交PR]
+    D --> E[自动化校验]
+    E --> F[人工审核]
+    F --> G[合并入库]
 ```
 
-### 3. 提交步骤
+## 数据规范
 
-1. 在 `data/drugs/` 目录下创建新的药品文件
-2. 按模板填写药品信息
-3. 提供数据来源链接
-4. 创建 Pull Request
+### 1. 数据来源
 
-### 4. 审核标准
+必须提供至少一个官方来源：
 
-- 数据来源可靠性
-- 格式规范性
-- 信息完整性
-- 争议说明充分性
+```yaml
+references:
+  - type: 药监局公告
+    url: https://www.nmpa.gov.cn/...
+```
 
-## 问题反馈
+### 2. 文件命名
 
-如发现数据错误或有新的需求建议，请：
+- 路径：`data/`
+- 文件名：`{自增ID}.md`
 
-1. 检查现有 Issues
-2. 创建新 Issue 并详细描述问题
-3. 标注相关标签（数据错误/功能建议等）
+### 3. 数据格式
 
-## 行为准则
+必须包含YAML元数据块，示例如下：
 
-请遵守以下准则：
+```yaml
+# data/1.md
+id: 1
+registrationNumber: 国药准字HJ20140344
+registrationType: 境外生产药品
+productName: 磷酸奥司他韦胶囊
+references:
+  - type: 药监局公告
+    url: https://www.nmpa.gov.cn/...
+```
 
-- 尊重他人贡献
-- 保持专业和友善
-- 遵循项目规范
-- 接受建设性意见
+## 提交规范
+
+### 1. 分支管理
+
+- 功能分支：`feature/药品名-批准文号`
+- 示例：`feature/奥司他韦-HJ20140344`
+
+### 2. Commit Message
+
+遵循如下推荐格式：
+
+```bash
+数据：新增磷酸奥司他韦胶囊(HJ20140344)
+^--^--^-----------------------------
+|     |
+|     +-> 动词+产品名称(批准文号/注册证号)+其他
++-> 类型（数据/修复/规范/文档/脚本）
+```
+
+### 3. PR要求
+
+- 关联相关Issue（如有）
+- 通过CI自动化校验
+- 包含完整来源说明
+
+## 审核标准
+
+| 检查项          | 通过标准                          | 检查方式       |
+|-----------------|-----------------------------------|----------------|
+| 数据真实性      | 提供官方可验证来源                | 人工审核       |
+| 格式规范性      | 通过`scripts/validate.py`校验     | 自动化检查     |
+| 命名一致性      | 符合schema.yaml定义               | 自动化+人工    |
+| 变更必要性      | 非重复数据/有效修正               | 人工审核       |
+
+## 本地开发
+
+1. 安装依赖：
+
+```bash
+pip install -r scripts/requirements.txt
+```
+
+1. 运行校验：
+
+```bash
+python scripts/validate.py data/1.md
+```
+
+## 争议处理
+
+如对数据有争议：
+
+1. 在Issue中标注`数据存疑`标签
+2. 提供反驳证据
+3. 等待维护者仲裁
+
+## 联系方式
+
+- 问题反馈：[Issues](https://github.com/dongzhenye/yuanyanyao/issues)
+- 讨论区：[Discussions](https://github.com/dongzhenye/yuanyanyao/discussions)
