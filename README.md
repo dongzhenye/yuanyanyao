@@ -1,5 +1,7 @@
 # 原研药数据库
 
+[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+
 一个开源的原研药数据库，旨在为中国用户提供权威、及时、易用的原研药信息查询服务。
 
 ## 项目简介
