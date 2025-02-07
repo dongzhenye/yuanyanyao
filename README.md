@@ -1,8 +1,8 @@
 # 原研药数据库
 
 [![数据来源](https://img.shields.io/badge/数据来源-NMPA-blue)](https://www.nmpa.gov.cn/)
-[![数据量徽章](https://img.shields.io/badge/数据量-1条-blue)]()
-[![更新时间徽章](https://img.shields.io/badge/更新-0天前-orange)]()
+[![数据量徽章](https://img.shields.io/badge/数据量-1条-green)]()
+[![更新时间徽章](https://img.shields.io/badge/更新-0天前-green)]()
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
 
 一个开源的原研药数据库，旨在为中国用户提供覆盖全面、更新及时、来源可靠的原研药数据。
