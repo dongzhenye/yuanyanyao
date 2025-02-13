@@ -1,9 +1,12 @@
 # 原研药数据库
 
 [![数据来源](https://img.shields.io/badge/数据来源-NMPA-blue)](https://www.nmpa.gov.cn/)
-[![数据量徽章](https://img.shields.io/badge/数据量-1条-green)]()
-[![更新时间徽章](https://img.shields.io/badge/更新-0天前-green)]()
+![数据量](https://img.shields.io/github/directory-file-count/dongzhenye/yuanyanyao/data?label=数据量&type=file)
+![更新时间](https://img.shields.io/github/last-commit/dongzhenye/yuanyanyao?label=更新)
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)
+[![GitHub stars](https://img.shields.io/github/stars/dongzhenye/yuanyanyao)](https://github.com/dongzhenye/yuanyanyao/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/dongzhenye/yuanyanyao)](https://github.com/dongzhenye/yuanyanyao/network)
+[![GitHub issues](https://img.shields.io/github/issues/dongzhenye/yuanyanyao)](https://github.com/dongzhenye/yuanyanyao/issues)
 
 一个开源的原研药数据库，旨在为中国用户提供覆盖全面、更新及时、来源可靠的原研药数据。
 
@@ -106,6 +109,17 @@ yuanyanyao/
 ├── scripts/       # 校验工具
 └── schema.yaml    # 数据模式定义
 ```
+
+## Star 历史
+
+[![Star History Chart](https://api.star-history.com/svg?repos=dongzhenye/yuanyanyao&type=Date)](https://star-history.com/#dongzhenye/yuanyanyao&Date)
+
+## 推荐组件
+
+- [shields.io](https://shields.io/) - 用于生成状态徽章
+- [markdownlint](https://github.com/DavidAnson/markdownlint) - Markdown 文件规范检查
+- [yaml-lint](https://github.com/adrienverge/yamllint) - YAML 文件语法检查
+- [github-changelog-generator](https://github.com/github-changelog-generator/github-changelog-generator) - 自动生成变更日志
 
 ## 致谢
 

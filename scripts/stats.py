@@ -5,10 +5,11 @@ import json
 
 def get_stats():
     data_dir = Path('data')
-    count = len(list(data_dir.glob('*.md')))
+    # 修改为扫描所有.md文件，包括子目录
+    count = len([f for f in data_dir.rglob('*.md') if f.is_file()])
     
-    # 获取最后更新时间
-    latest = max(os.path.getmtime(f) for f in data_dir.glob('*.md'))
+    # 获取最后更新时间，包括子目录
+    latest = max(os.path.getmtime(f) for f in data_dir.rglob('*.md') if f.is_file())
     days_ago = int((datetime.now().timestamp() - latest) / 86400)
     
     return {
