@@ -178,3 +178,25 @@ cython_debug/
 *.pyc
 __pycache__/
 .pytest_cache/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# macOS Directories
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# macOS IDE
+*.icloud
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
