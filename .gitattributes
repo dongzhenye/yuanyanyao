@@ -1,0 +1,26 @@
+# 设置默认的行尾处理方式
+* text=auto
+
+# Markdown 文件
+*.md text diff=markdown
+
+# 数据文件
+*.json text
+*.yaml text
+*.yml text
+
+# 文档
+*.txt text
+*.pdf binary
+*.doc binary
+*.docx binary
+
+# 图片文件
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.svg text
+
+# 不纳入语言统计的文件
+data/* linguist-documentation 
