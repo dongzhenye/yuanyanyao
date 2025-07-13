@@ -27,11 +27,38 @@
 - JSON（完整数据，推荐）
 - CSV（扁平格式，Excel友好）
 
-### 本地克隆
+### 本地开发
+
+1. **克隆仓库**
 
 ```bash
 git clone https://github.com/dongzhenye/yuanyanyao.git
-cd yuanyanyao/data
+cd yuanyanyao
+```
+
+2. **设置虚拟环境**
+
+```bash
+# 创建虚拟环境
+python -m venv .venv
+
+# 激活虚拟环境
+source .venv/bin/activate  # macOS/Linux
+# 或
+.venv\Scripts\activate     # Windows
+
+# 安装依赖
+pip install -r scripts/requirements.txt
+```
+
+3. **验证环境**
+
+```bash
+# 运行测试
+python -m pytest scripts/test_*.py -v
+
+# 验证单个数据文件
+python scripts/validate.py data/1.md
 ```
 
 查看示例数据：

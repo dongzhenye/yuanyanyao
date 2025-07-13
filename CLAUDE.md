@@ -37,6 +37,7 @@ git commit -m "其他：[描述]"
 ## Architecture Overview
 
 ### Project Structure
+
 This is the Original Drug Database (原研药数据库) - an open-source database of original/innovator drugs aimed at providing comprehensive, reliable drug data for Chinese users.
 
 ### Core Components
