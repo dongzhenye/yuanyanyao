@@ -200,3 +200,6 @@ __pycache__/
 .vscode/
 *.sublime-project
 *.sublime-workspace
+
+# 临时文档或计划
+.*.md
